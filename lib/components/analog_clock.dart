@@ -15,8 +15,9 @@ class _AnalogClockState extends State<AnalogClock> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-      child: AspectRatio(
-        aspectRatio: 1,
+      child: SizedBox(
+        width: 200,
+        height: 200,
         child: Container(
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.surface,

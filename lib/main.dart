@@ -3,8 +3,10 @@ import 'package:clock_demo/controllers/theme_controller.dart';
 import 'package:clock_demo/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:timezone/data/latest.dart' as tz;
 
 void main() {
+  tz.initializeTimeZones();
   runApp(const MyApp());
 }
 
