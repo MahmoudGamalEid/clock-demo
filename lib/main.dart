@@ -1,5 +1,6 @@
 import 'package:clock_demo/clock_homepage.dart';
 import 'package:clock_demo/controllers/theme_controller.dart';
+import 'package:clock_demo/controllers/world_clock_controller.dart';
 import 'package:clock_demo/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -16,8 +17,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-        create: (context) => ThemeController(),
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (context) => ThemeController()),
+          ChangeNotifierProvider(create: (context) => WorldClockController()),
+        ],
         child: Consumer<ThemeController>(
           builder: (context, theme, child) => MaterialApp(
             debugShowCheckedModeBanner: false,
@@ -30,4 +34,3 @@ class MyApp extends StatelessWidget {
         ));
   }
 }
-
