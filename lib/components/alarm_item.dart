@@ -23,6 +23,7 @@ class AlarmItem extends StatelessWidget {
               _alarmController.removeAlarm(alarm);
             },
             foregroundColor: Theme.of(context).colorScheme.primary,
+            backgroundColor: Theme.of(context).backgroundColor,
             icon: Icons.delete,
             label: 'Delete',
           ),

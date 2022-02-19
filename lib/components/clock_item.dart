@@ -39,6 +39,7 @@ class _ClockItemState extends State<ClockItem> {
               _worldClockController.removeClock(widget.clock);
             },
             foregroundColor: Theme.of(context).colorScheme.primary,
+            backgroundColor: Theme.of(context).backgroundColor,
             icon: Icons.delete,
             label: 'Delete',
           ),
