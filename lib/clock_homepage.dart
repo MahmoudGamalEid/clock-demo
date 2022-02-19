@@ -5,7 +5,7 @@ import 'package:clock_demo/tabs/worldclock_tab.dart';
 import 'package:clock_demo/controllers/theme_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+import 'package:timezone/timezone.dart' as tz;
 
 class ClockHomePage extends StatefulWidget {
   const ClockHomePage({Key? key}) : super(key: key);
@@ -39,7 +39,9 @@ class _ClockHomePageState extends State<ClockHomePage> {
         isDismissible: true,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         context: context,
-        builder: (BuildContext context,) {
+        builder: (
+          BuildContext context,
+        ) {
           return const AddAlarmModalBottomSheet();
         });
   }
@@ -50,7 +52,9 @@ class _ClockHomePageState extends State<ClockHomePage> {
         isDismissible: true,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         context: context,
-        builder: (BuildContext context,) {
+        builder: (
+          BuildContext context,
+        ) {
           return const AddWorldClockModalBottomSheet();
         });
   }
@@ -58,6 +62,10 @@ class _ClockHomePageState extends State<ClockHomePage> {
   @override
   Widget build(BuildContext context) {
     ThemeController _themeController = Provider.of<ThemeController>(context);
+    String? localTimeZone = Provider.of<String?>(context);
+    if (localTimeZone != null) {
+      tz.setLocalLocation(tz.getLocation(localTimeZone));
+    }
     return Scaffold(
       appBar: AppBar(
         leading: MaterialButton(
@@ -77,7 +85,7 @@ class _ClockHomePageState extends State<ClockHomePage> {
             shape: const CircleBorder(),
             onPressed: () {
               switch (_selectedIndex) {
-                case 0 :
+                case 0:
                   showAddWorldClockModalBottomSheet();
                   break;
                 case 1:

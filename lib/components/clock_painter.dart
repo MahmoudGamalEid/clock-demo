@@ -13,9 +13,9 @@ class ClockPainter extends CustomPainter {
     Offset center = Offset(centerX, centerY);
     // minute arm values
     double minX =
-        centerX + size.width * 0.4 * cos((dateTime.minute * 6) * pi / 180);
+        centerX + size.width * 0.47 * cos((dateTime.minute * 6) * pi / 180);
     double minY =
-        centerY + size.width * 0.4 * sin((dateTime.minute * 6) * pi / 180);
+        centerY + size.width * 0.47 * sin((dateTime.minute * 6) * pi / 180);
     // draw minute arm
     canvas.drawLine(
         center,
@@ -27,11 +27,11 @@ class ClockPainter extends CustomPainter {
     // hour arm values
     double hourX = centerX +
         size.width *
-            0.47 *
+            0.35 *
             cos((dateTime.hour * 30 + dateTime.minute * 0.5) * pi / 180);
     double hourY = centerY +
         size.width *
-            0.47 *
+            0.35 *
             sin((dateTime.hour * 30 + dateTime.minute * 0.5) * pi / 180);
     // draw hour arm
     canvas.drawLine(
